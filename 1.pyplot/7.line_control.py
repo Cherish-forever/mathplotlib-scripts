@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 # fmt = '[marker][line][color]' or '[color][marker][line]'
 # colors:          marker:                      line:
@@ -28,16 +29,18 @@ import matplotlib.pyplot as plt
 #                  '|': vline marker
 #                  '_': hline marker
 
-# default is 'b-' is blue line
-plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'b-')
+x = np.linspace(0, 2 * np.pi, 200)
 
-# 'ro' is red circles
-plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'ro')
+plt.plot(x, np.sin(x), linewidth=5.0)
 
-# 'g^' is green trigangles
-plt.plot([1, 2, 3, 4], [4, 3, 2, 1], 'g^')
+line, = plt.plot(x, np.cos(x), '-')
+# close antialiased
+line.set_antialiased(False)
 
-# [xmin, xmax, ymin, ymax] [0-6, 0-20]
-plt.axis((0, 6, 0, 20))
+line1, line2 = plt.plot(x, x, x, -x)
+# use keyword arguments
+plt.setp(line1, color='r', linewidth=5.0)
+# matlab style
+plt.setp(line2, 'color', 'g', 'linewidth', 5.0)
 
 plt.show()

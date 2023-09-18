@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 
 # fmt = '[marker][line][color]' or '[color][marker][line]'
 # colors:          marker:                      line:
@@ -28,16 +29,21 @@ import matplotlib.pyplot as plt
 #                  '|': vline marker
 #                  '_': hline marker
 
-# default is 'b-' is blue line
-plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'b-')
+x = np.linspace(0, 2 * np.pi, 30)
 
-# 'ro' is red circles
-plt.plot([1, 2, 3, 4], [1, 4, 9, 16], 'ro')
+# first figure
+plt.figure()
+plt.subplot(211) # the first subplot in the first figure
+plt.plot(x, np.sin(x), 'bo', x, np.sin(x), 'k')
+plt.subplot(212) # the second subplot in the first figure
+plt.plot(x, np.sin(x), 'r--')
 
-# 'g^' is green trigangles
-plt.plot([1, 2, 3, 4], [4, 3, 2, 1], 'g^')
+# second figure
+plt.figure(2)
+plt.subplot(211) # the first subplot in the sencod figure
+plt.plot(x, np.cos(x), 'bo', x, np.cos(x), 'k')
 
-# [xmin, xmax, ymin, ymax] [0-6, 0-20]
-plt.axis((0, 6, 0, 20))
+plt.subplot(212) # the second subplot in the sencod figure
+plt.plot(x, np.cos(x), 'r--')
 
 plt.show()
