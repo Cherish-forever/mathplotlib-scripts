@@ -8,15 +8,15 @@ a = np.sin(alpha)
 b = np.sin(alpha + (2 / 3) * np.pi)
 c = np.sin(alpha - (2 / 3) * np.pi)
 
+# befor equiamplitude
 va1 = (3 / 2) * a
 vb1 = (np.sqrt(3) / 2) * a + np.sqrt(3) * b
 
+# after equiamplitude
 va2 = va1 * (2 / 3)
 vb2 = vb1 * (2 / 3)
-#va2 = a # va1 * (2 / 3)
-#vb2 = (np.sqrt(3) / 3) * (a + 2 * b) # vb1 * (2 / 3)
-#vb2 = 0.57735026919 * a + 1.15470053838 * b
 
+# inv clark
 ta = va2
 tb = vb2 * (3 / 2 / np.sqrt(3)) - (1 / 2) * va2
 #tb = vb2 * 0.8660254039 - 0.5 * va2
